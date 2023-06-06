@@ -77,6 +77,7 @@ group :test do
   gem 'database_cleaner'
   gem 'faker'
   gem 'webmock'
+  gem 'simplecov', require: false
 end
 
 gem 'rubocop-performance', require: false
