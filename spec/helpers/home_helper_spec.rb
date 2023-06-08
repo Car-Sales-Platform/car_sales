@@ -12,6 +12,11 @@ require 'rails_helper'
 #     end
 #   end
 # end
+# RSpec.describe HomeHelper do
+#   pending "add some examples to (or delete) #{__FILE__}"
+# end
 RSpec.describe HomeHelper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'is accessible' do
+    expect(described_class).to be_a(Module)
+  end
 end
