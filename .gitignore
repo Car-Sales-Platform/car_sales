@@ -35,3 +35,6 @@
 
 # Ignore simple cov files 
 /coverage/*
+
+# Ignoe node modules
+node_modules/
