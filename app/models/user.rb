@@ -6,5 +6,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :phone_number, :first_name, :last_name, presence: true
+  validates :first_name, :last_name, presence: true
+  validates :phone_number, numericality: { only_integer: true }, length: { in: 10..12 }
 end
