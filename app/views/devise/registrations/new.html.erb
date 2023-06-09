@@ -1,0 +1,48 @@
+<div class="bg-neutral p-10 rounded-md drop-shadow-2xl">
+  <h2 class="text-center font-bold text-3xl text-orange-500 capitalize font-sans">Sign up</h2>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "login-reg-form" }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="field">
+      <%= f.label :email, class: "text-lime-500" %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"text-neutral rounded-full" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :first_name, class: "text-lime-500" %><br />
+      <%= f.text_field :first_name, class:"text-neutral rounded-full" %>
+    </div>
+    <div class="field">
+      <%= f.label :last_name, class: "text-lime-500" %><br />
+      <%= f.text_field :last_name, class:"text-neutral rounded-full" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :phone_number, class: "text-lime-500" %><br />
+      <%= f.text_field :phone_number, class:"text-neutral rounded-full" %>
+    </div>
+
+
+    <div class="field">
+      <div class="">
+        <%= f.label :password, class: "text-lime-500" %>
+        <% if @minimum_password_length %>
+        <em class="text-lime-500">(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+      </div>
+      <%= f.password_field :password, autocomplete: "new-password", class:"text-neutral rounded-full" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password_confirmation, class: "text-lime-500" %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"text-neutral rounded-full" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Sign up", class: "btn btn-secondary rounded-none my-5 mx-2 px-24 py-2 text-gray-300 text-lg font-sans font-medium" %>
+    </div>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+</div>
