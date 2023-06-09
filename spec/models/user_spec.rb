@@ -2,10 +2,10 @@
 
 require 'rails_helper'
 
-RSpec.describe User, type: :model do
+RSpec.describe User do
   describe 'validations' do
     it 'requires phone number, first name, and last name' do
-      user = User.new
+      user = described_class.new
       expect(user).not_to be_valid
       expect(user.errors[:first_name]).to include("can't be blank")
       expect(user.errors[:last_name]).to include("can't be blank")
@@ -35,11 +35,15 @@ RSpec.describe User, type: :model do
   end
 
   describe 'testing phone number' do
-    subject { User.new(email: 'johndoe@gmail.com', first_name: 'john', last_name: 'doe', phone_number: '0712345678', password: 'jumbledchars') }
+    subject(:user) do
+      described_class.new(email: 'johndoe@gmail.com', first_name: 'john', last_name: 'doe', phone_number: '0712345678',
+                          password: 'jumbledchars')
+    end
+
     it 'checks length of the phone number' do
-      subject.phone_number = 'invalid'
-      expect(subject).to_not be_valid
-      expect(subject.errors[:phone_number]).to include("is not a number", "is too short (minimum is 10 characters)")
+      user.phone_number = 'invalid'
+      expect(user).not_to be_valid
+      expect(user.errors[:phone_number]).to include('is not a number', 'is too short (minimum is 10 characters)')
     end
   end
 end
