@@ -1,0 +1,5 @@
+<%= form_tag searches_path, method: :get do %>
+    <%= select_tag :make, options_for_select(car_make_array), prompt: "Select Make" %><br/>
+    <%= select_tag :model, options_for_select({}), prompt: "Select Model", class: 'mt-3', disabled: true %><br/>
+    <%= select_tag :year, options_for_select({}), prompt: "Select Year", class: 'mt-3', disabled: true %><br/>
+<% end %>
