@@ -86,3 +86,4 @@ gem 'devise'
 gem 'rubocop-performance', require: false
 gem 'rubocop-rails', require: false
 gem 'rubocop-rspec', require: false
+gem 'view_component'
