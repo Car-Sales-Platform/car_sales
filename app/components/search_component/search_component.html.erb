@@ -1,5 +1,10 @@
-<%= form_tag searches_path, method: :get do %>
-    <%= select_tag :make, options_for_select(car_make_array), prompt: "Select Make" %><br/>
-    <%= select_tag :model, options_for_select({}), prompt: "Select Model", class: 'mt-3', disabled: true %><br/>
-    <%= select_tag :year, options_for_select({}), prompt: "Select Year", class: 'mt-3', disabled: true %><br/>
+<%= form_tag(searches_path, method: :get, data: {
+  controller: 'search',
+  search_target: 'form',
+  action: 'submit->search#formSubmit',
+}) do %>
+  <%= select_tag :make, options_for_select(car_make_array), prompt: "Select Make" %><br/>
+  <%= select_tag :model, options_for_select({}), prompt: 'Select Model', class: 'mt-3', disabled: false %><br/>
+  <%= select_tag :year, options_for_select({}), prompt: 'Select Year', class: 'mt-3', disabled: false %><br/>
+  <%= submit_tag 'Search', class: 'btn btn-primary mt-3' %>
 <% end %>
