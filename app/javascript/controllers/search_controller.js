@@ -10,7 +10,6 @@ export default class extends Controller {
     if (!isValid) {
       event.preventDefault();
     }
-    console.log(isValid);
   }
 
   validateForm(form) {
