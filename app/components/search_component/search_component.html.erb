@@ -3,8 +3,8 @@
   search_target: 'form',
   action: 'submit->search#formSubmit',
 }) do %>
-  <%= select_tag :make, options_for_select(car_make_array), prompt: "Select Make", data: {action: 'change->search#loadModels'} %><br/>
-  <%= select_tag :model, options_for_select({}), prompt: 'Select Model', id: 'model', class: 'mt-3', disabled: true, data: { search_target: 'model'} %><br/>
-  <%= select_tag :year, options_for_select({}), prompt: 'Select Year', class: 'mt-3', disabled: true %><br/>
+  <%= select_tag :make, options_for_select(car_make_array), prompt: "Select Make", data: {action: 'change->search#loadModels', search_target: 'make' } %><br/>
+  <%= select_tag :model, options_for_select({}), prompt: 'Select Model', id: 'model', class: 'mt-3', disabled: true, data: { search_target: 'model', action: 'change->search#loadYears'} %><br/>
+  <%= select_tag :year, options_for_select({}), prompt: 'Select Year', id: 'year', class: 'mt-3', disabled: true, data: {search_target: 'year'} %><br/>
   <%= submit_tag 'Search', class: 'btn btn-primary mt-3' %>
 <% end %>

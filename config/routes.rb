@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   namespace :cars do
     resources :models, only: :index
+    resources :years, only: :index
   end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

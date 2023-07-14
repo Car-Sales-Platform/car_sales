@@ -34,13 +34,25 @@ export default class extends Controller {
   }
  
   async loadModels(event) {
-    let model = event.target.value;
-    const response = await get(`/cars/models?make=${model}`, {
+    let make = event.target.value;
+    const response = await get(`/cars/models?make=${make}`, {
       responseKind: 'turbo-stream'
     })
 
     if(response.ok) {
       this.modelTarget.disabled = false;  
+    }
+  }
+
+  async loadYears(event) {
+    let make = this.makeTarget.value;
+    let model = event.target.value;
+    const response = await get(`/cars/years?make=${make}&model=${model}`, {
+      responseKind: 'turbo-stream'
+    })
+
+    if(response.ok) {
+      this.yearTarget.disabled = false;  
     }
   }
 
