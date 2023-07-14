@@ -9,11 +9,4 @@ RSpec.describe 'Searches' do
       expect(response).to have_http_status(:success)
     end
   end
-
-  describe 'GET /create' do
-    it 'returns http success' do
-      get '/searches/create'
-      expect(response).to have_http_status(:success)
-    end
-  end
 end
