@@ -1,7 +1,8 @@
 import { Controller } from "@hotwired/stimulus"
+import { get } from "@rails/request.js"
 
 export default class extends Controller {
-  static targets = [ "form" ]
+  static targets = [ "form", "make", "model", "year"]
 
   formSubmit(event) {
     const form = event.target;
@@ -31,4 +32,16 @@ export default class extends Controller {
 
     return isValid;
   }
+ 
+  async loadModels(event) {
+    let model = event.target.value;
+    const response = await get(`/cars/models?make=${model}`, {
+      responseKind: 'turbo-stream'
+    })
+
+    if(response.ok) {
+      this.modelTarget.disabled = false;  
+    }
+  }
+
 }

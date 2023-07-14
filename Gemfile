@@ -83,6 +83,7 @@ group :test do
 end
 
 gem 'devise'
+gem 'requestjs-rails'
 gem 'rubocop-performance', require: false
 gem 'rubocop-rails', require: false
 gem 'rubocop-rspec', require: false
