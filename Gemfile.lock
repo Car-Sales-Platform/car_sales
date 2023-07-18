@@ -201,6 +201,8 @@ GEM
     regexp_parser (2.8.0)
     reline (0.3.5)
       io-console (~> 0.5)
+    requestjs-rails (0.0.10)
+      rails (>= 6.0.0)
     responders (3.1.0)
       actionpack (>= 5.2)
       railties (>= 5.2)
@@ -277,6 +279,10 @@ GEM
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.4.2)
+    view_component (2.71.0)
+      activesupport (>= 5.0.0, < 8.0)
+      concurrent-ruby (~> 1.0)
+      method_source (~> 1.0)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.2.0)
@@ -318,6 +324,7 @@ DEPENDENCIES
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.3)
   redis (~> 4.0)
+  requestjs-rails
   rspec-rails
   rubocop-performance
   rubocop-rails
@@ -329,6 +336,7 @@ DEPENDENCIES
   tailwindcss-rails
   turbo-rails
   tzinfo-data
+  view_component
   web-console
   webdrivers
   webmock

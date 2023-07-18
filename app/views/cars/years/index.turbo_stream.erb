@@ -1,0 +1,3 @@
+<%= turbo_stream.update "year" do %>
+  <%= options_for_select @years.insert(0,['Select Year', '']) %>
+<% end %>
