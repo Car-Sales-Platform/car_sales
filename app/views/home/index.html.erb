@@ -9,7 +9,7 @@
      <main role="main" class="w-full flex-grow pt-1 px-3">
         <div class="container">
            <%= render 'searches/form' %>
-           <%= render 'searches/results' %>
+           <%= render partial: 'searches/results', locals: {cars: @cars} %>
         </div>
      </main>
      <div class="w-fixed w-full flex-shrink flex-grow-0 px-2">

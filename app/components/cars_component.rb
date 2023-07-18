@@ -6,5 +6,9 @@ class CarsComponent < ViewComponent::Base
     @cars = cars
   end
 
+  def render?
+    !cars.nil?
+  end
+
   attr_reader :cars
 end
