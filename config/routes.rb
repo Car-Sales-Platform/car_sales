@@ -3,7 +3,9 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
-  resources :searches, only: %i[new create]
+  resources :searches, only: %i[new]
+
+  get 'search', to: 'searches#create', as: 'search'
 
   namespace :cars do
     resources :models, only: :index
