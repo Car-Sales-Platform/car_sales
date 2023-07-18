@@ -1,0 +1,12 @@
+<div class="flex gap-2 font-bold">
+  <div>Make</div>
+  <div>Make</div>
+  <div>Make</div>
+</div>
+<% cars.each do |car| %>
+    <div class="flex gap-2" >
+        <div><%= car.make %></div>
+        <div><%= car.model %></div>
+        <div><%= car.year %></div>
+    </div>
+<% end %>

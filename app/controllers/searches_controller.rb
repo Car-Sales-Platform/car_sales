@@ -11,10 +11,9 @@ class SearchesController < ApplicationController
     end
   end
 
+  private
 
-  private 
-
-  def search_params 
+  def search_params
     params.permit(:make, :model, :year)
   end
 end
