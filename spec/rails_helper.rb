@@ -3,6 +3,9 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
 require 'simplecov'
+require 'view_component/test_helpers'
+# require "view_component/system_test_helpers"
+require 'capybara/rspec'
 SimpleCov.start
 
 ENV['RAILS_ENV'] ||= 'test'
@@ -66,4 +69,10 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+end
+
+RSpec.configure do |config|
+  config.include ViewComponent::TestHelpers, type: :component
+  # config.include ViewComponent::SystemTestHelpers, type: :component
+  config.include Capybara::RSpecMatchers, type: :component
 end
