@@ -3,7 +3,6 @@
 class Car < ApplicationRecord
   validates :make, :model, :year, presence: true
 
-  def self.makes
-    Car.distinct.pluck(:make)
-  end
+  scope :makes, -> { distinct.order(:make).pluck(:make) }
+  # Ex:- scope :active, -> {where(:active => true)}
 end
