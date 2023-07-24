@@ -1,10 +1,18 @@
-<%= form_tag(search_path, method: :get,  data: {
+<%= form_tag(search_path, method: :get, data: {
   controller: 'search',
   search_target: 'form',
   action: 'submit->search#formSubmit',
-}) do %>
-  <%= select_tag :make, options_for_select(car_make_array), prompt: "Select Make", data: {action: 'change->search#loadModels', search_target: 'make' } %><br/>
-  <%= select_tag :model, options_for_select({}), prompt: 'Select Model', id: 'model', class: 'mt-3', disabled: true, data: { search_target: 'model', action: 'change->search#loadYears'} %><br/>
-  <%= select_tag :year, options_for_select({}), prompt: 'Select Year', id: 'year', class: 'mt-3', disabled: true, data: {search_target: 'year'} %><br/>
-  <%= submit_tag 'Search', class: 'btn btn-primary mt-3' %>
+}, class: "flex shrink gap-1 justify-center w-full py-4"
+) do %>
+
+  <div class="flex flex-wrap">
+    <%= select_tag :make, options_for_select(car_make_array), prompt: "Select Make", data: {action: 'change->search#loadModels', search_target: 'make' }, class: "border-2 border-neutral rounded-lg text-neutral" %>
+
+    <%= select_tag :model, options_for_select({}), prompt: 'Select Model', id: 'model', class: "border-2 border-neutral rounded-lg text-neutral", disabled: true, data: { search_target: 'model', action: 'change->search#loadYears'} %>
+
+    <%= select_tag :year, options_for_select({}), prompt: 'Select Year', id: 'year', class: "border-2 border-neutral rounded-lg text-neutral", disabled: true, data: {search_target: 'year'} %>
+  </div>
+
+  <%= submit_tag 'Search', class: 'btn btn-secondary rounded-md' %>
+
 <% end %>
