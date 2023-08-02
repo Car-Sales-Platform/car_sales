@@ -4,6 +4,7 @@
       <th class="text-secondary text-xl font-bold px-2">Make</th>
       <th class="text-secondary text-xl font-bold px-2">Model</th>
       <th class="text-secondary text-xl font-bold px-2">Year</th>
+      <th class="text-secondary text-xl font-bold px-2"></th>
     </tr>
   </thead>
   <tbody class="w-11/12 flex flex-col items-center p-2 bg-slate-100 gap-3 min-w-fit">
@@ -12,6 +13,7 @@
         <td class="px-2 font-bold"><%= car.make %></td>
         <td class="px-2 font-bold"><%= car.model %></td>
         <td class="px-2 font-bold"><%= car.year %></td>
+        <td class="px-2 font-bold"><%= link_to "Interested", "#" , data: {turbo_stream: "car_interest"}  %></td>
       </tr>
     <% end %>
   </tbody>
