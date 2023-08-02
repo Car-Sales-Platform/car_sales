@@ -1,26 +1,31 @@
 <% if user_signed_in? %>
-  <div class="w-full flex flex-col sm:flex-row flex-wrap sm:flex-nowrap py-4 flex-grow">
+  <div class="w-full flex flex-col py-4">
      <!-- fixed-width -->
-     <div class="w-fixed w-full flex-shrink flex-grow-0 px-4">
-        <div class="sticky top-0 p-4 w-full h-full">
-           <%= current_user.email %>  <%= button_to "Sign out", destroy_user_session_path, class: "btn btn-neutral rounded", method: :get %> 
+     <div class="w-fixed w-full flex-shrink flex-grow-0 ">
+        <div class="sticky top-0 w-full h-full flex flex-col items-end px-2">
+           <%= current_user.email %>
+           <%= button_to "Sign out", destroy_user_session_path, class: "btn btn-neutral rounded", method: :get %> 
         </div>
      </div>
-     <main role="main" class="w-full flex-grow pt-1 px-3">
-        <div class="container">
+
+     <main role="main" class="w-full p-3">
+        <div class="w-full flex flex-col gap-4">
            <%= render 'searches/form' %>
+           <%= render partial: 'searches/results', locals: {cars: @cars} %>
         </div>
      </main>
-     <div class="w-fixed w-full flex-shrink flex-grow-0 px-2">
+
+     <%# <div class="w-fixed w-full flex-shrink flex-grow-0 px-2">
         <!-- fixed-width -->
         <div class="flex sm:flex-col px-2">
            <!-- sidebar goes here -->
         </div>
-     </div>
+     </div> %>
+
   </div>
-  <footer class="bg-black mt-auto">
+  <%# <footer class="bg-black mt-auto">
      ...
-  </footer>
+  </footer> %>
 <% else %>
   <%= button_to "Sign in", new_user_session_path, class: "btn btn-neutral rounded" %> 
 <% end %>

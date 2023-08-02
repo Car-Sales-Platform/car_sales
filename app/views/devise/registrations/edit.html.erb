@@ -1,4 +1,4 @@
-<div class="bg-neutral p-10 rounded-md drop-shadow-2xl">
+<div class="bg-neutral p-10 rounded-md drop-shadow-2xl max-w-max">
   <h2 class="text-center font-bold text-3xl text-orange-500 capitalize font-sans">Edit <%= resource_name.to_s.humanize %></h2>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>

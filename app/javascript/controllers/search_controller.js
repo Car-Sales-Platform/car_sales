@@ -4,13 +4,39 @@ import { get } from "@rails/request.js"
 export default class extends Controller {
   static targets = [ "form", "make", "model", "year"]
 
+
   formSubmit(event) {
     const form = event.target;
     let isValid = this.validateForm(form);
 
-    if (!isValid) {
-      event.preventDefault();
+    event.preventDefault();
+
+    if (isValid) {
+      
+      this.submitForm(event);
     }
+  }
+
+  async submitForm() {
+    let make = this.makeTarget.value;
+    let model = this.modelTarget.value;
+    let year = this.yearTarget.value;
+
+    let url = `/search?make=${make}&model=${model}&year=${year}`;
+
+    const response = await get(url, {
+      responseKind: 'turbo-stream'
+    })
+
+    if(response.ok) {
+      this.formTarget.reset();
+      this.modelTarget.disabled = true;
+      this.yearTarget.disabled = true;
+      // update url 
+      window.history.pushState({}, null, url);
+    }
+
+
   }
 
   validateForm(form) {
