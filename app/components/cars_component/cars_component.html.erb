@@ -1,20 +1,34 @@
-<table class="w-full flex flex-col gap-3 p-2 items-center">
-  <thead class=" w-11/12 flex justify-center bg-neutral p-2 min-w-fit">
-    <tr class="w-full flex justify-around max-w-lg">
-      <th class="text-secondary text-xl font-bold px-2">Make</th>
-      <th class="text-secondary text-xl font-bold px-2">Model</th>
-      <th class="text-secondary text-xl font-bold px-2">Year</th>
-      <th class="text-secondary text-xl font-bold px-2"></th>
+<div class="min-w-full">
+  <table class="w-2/3 m-auto text-center">
+  
+    <tr class="bg-neutral flex">
+      <th class=" text-secondary p-3 shrink grow">Make</th>
+      <th class=" text-secondary p-3 shrink grow">Model</th>
+      <th class=" text-secondary p-3 shrink grow">Year</th>
+      <th class=" text-secondary p-3 shrink grow">Contact Seller</th>
     </tr>
-  </thead>
-  <tbody class="w-11/12 flex flex-col items-center p-2 bg-slate-100 gap-3 min-w-fit">
-    <% cars.each do |car| %>
-      <tr class="w-full max-w-lg flex justify-around">
-        <td class="px-2 font-bold"><%= car.make %></td>
-        <td class="px-2 font-bold"><%= car.model %></td>
-        <td class="px-2 font-bold"><%= car.year %></td>
-        <td class="px-2 font-bold"><%= link_to "Interested", "#" , data: {turbo_stream: "car_interest"}  %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+
+    <tbody class="w-full max-w-lg p-4 bg-black">
+      <% cars.each do |car| %>
+        <tr class="odd:bg-gray-200 flex">
+          <td class="p-3 shrink grow"><%= car.make %></td>
+          <td class="p-3 shrink grow"><%= car.model %></td>
+          <td class="p-3 shrink grow"><%= car.year %></td>
+          <td class="p-3 shrink grow">
+
+            <%# <%= turbo_frame_tag 'send-sms-form' do %>
+              <%= form_tag(send_sms_path, method: :post, data: { turbo: true }) do %>
+                <%= hidden_field_tag :make, car.make %>
+                <%= hidden_field_tag :model, car.model %>
+                <%= hidden_field_tag :year, car.year %>
+                <%= hidden_field_tag :phone_number, current_user.phone_number %>
+                <%= submit_tag 'Interested', class: "bg-accent-focus hover:bg-accent px-4 py-2 rounded-lg text-neutral" %>
+              <% end %>
+            <%# <% end %>
+
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

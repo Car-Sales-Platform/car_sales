@@ -29,5 +29,9 @@
 # To learn more, please read the Rails Internationalization guide
 # available at https://guides.rubyonrails.org/i18n.html.
 
+# en:
+#   hello: "Hello world"
 en:
-  hello: "Hello world"
+  sms:
+    send_success: 'Interest SMS sent successfully!'
+    send_error: 'Failed to send Interest SMS.'
