@@ -1,0 +1,9 @@
+<% if flash[:notice].present? %>
+  <div class="w-full m-auto flex justify-center">
+    <p class="p-2 bg-green-50 m-2 text-green-500 font-medium rounded-lg inline-block notice"><%= notice %></p>
+  </div>
+<% elsif flash[:alert].present? %>
+  <div class="w-full m-auto flex justify-center">
+    <p class="p-2 bg-rose-50 m-2 text-rose-500 font-medium rounded-lg inline-block alert"><%= alert %></p>
+  </div>
+<% end %>

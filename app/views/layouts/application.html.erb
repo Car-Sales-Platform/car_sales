@@ -12,13 +12,8 @@
   </head>
 
   <body class="w-screen p-2">
-
-    <% if notice.present? %>
-      <p class="notice"><%= notice %></p>
-    <% end %>
-    <% if alert.present? %>
-      <p class="alert"><%= alert %></p>
-    <% end %>
+   
+    <%= render 'shared/flash' %>
 
     <main class="w-full mx-auto min-h-screen flex flex-col items-center">
       <%= yield %>

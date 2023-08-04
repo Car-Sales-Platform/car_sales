@@ -16,4 +16,6 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root 'home#index'
+
+  post '/send_sms', to: 'sms#send_sms'
 end
